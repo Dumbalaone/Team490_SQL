@@ -1,6 +1,5 @@
 -- creating a Database
 
--- create table customer_address
 -- create table customer
 CREATE TABLE customer (
     customer_id INT PRIMARY KEY,
@@ -11,6 +10,7 @@ CREATE TABLE customer (
     phone_number VARCHAR(15)
 );
 
+-- create table customer_address
 CREATE TABLE customer_address (
     customer_id INT,
     address_id INT,
