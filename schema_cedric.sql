@@ -1,7 +1,5 @@
 -- creating a Database
 
-USE bookstore;
-
 -- create table customer_address
 -- create table customer
 CREATE TABLE customer (
