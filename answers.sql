@@ -1,6 +1,5 @@
 CREATE DATABASE Bookstore;
 
-<<<<<<< HEAD
 
 USE Bookstore;
 
@@ -126,7 +125,6 @@ GRANT INSERT,UPDATE,DELETE,SELECT ON Bookstore.* TO user1;
 GRANT devs TO cedrick@'%';
 GRANT admin1 TO philip@'%';
 GRANT user1 TO mine@'%';
-=======
 -- Philips files goes here --
 
 USE Bookstore;
@@ -235,4 +233,3 @@ INSERT INTO book_author (book_id, author_id) VALUES
 
 
  --Gift's Files go here --
->>>>>>> 5c630624ed091a6afc605982fe962a11ae4cc6e0
