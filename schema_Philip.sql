@@ -1,4 +1,4 @@
-use Bookstore;
+USE Bookstore;
 -- Creating the tables
 CREATE TABLE book (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
