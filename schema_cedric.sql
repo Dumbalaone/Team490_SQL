@@ -1,5 +1,5 @@
 -- creating a Database
-CREATE DATABASE bookstore;
+
 USE bookstore;
 
 -- create table customer_address
