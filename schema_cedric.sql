@@ -1,8 +1,9 @@
--- creating a Database
+USE Bookstore;
+
 
 -- create table customer
 CREATE TABLE customer (
-    customer_id INT PRIMARY KEY,
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
     prefix VARCHAR(15),
     first_name VARCHAR(50),
     last_name VARCHAR(50),
@@ -23,13 +24,13 @@ CREATE TABLE customer_address (
 
 -- create table address_status
 CREATE TABLE address_status (
-    status_id INT PRIMARY KEY,
+    status_id INT AUTO_INCREMENT PRIMARY KEY,
     status_name VARCHAR(50)
 );
 
 -- create table address
 CREATE TABLE address (
-    address_id INT PRIMARY KEY,
+    address_id INT AUTO_INCREMENT PRIMARY KEY,
     street VARCHAR(255),
     city VARCHAR(100),
     state VARCHAR(100),
@@ -40,7 +41,7 @@ CREATE TABLE address (
 
 -- create table country
 CREATE TABLE country (
-    country_id INT PRIMARY KEY,
+    country_id INT AUTO_INCREMENT PRIMARY KEY,
     country_name VARCHAR(100)
 );
 
@@ -79,11 +80,11 @@ VALUES
 (30, 'Ms.', 'Harper', 'Anderson', 'harper.anderson30@example.com', '456-789-1231');
 
 -- Creating Users of the Database
-CREATE USER 'devs'@'localhost'
+CREATE USER 'devs'@'%'
 IDENTIFIED BY "devs12345";
-CREATE USER 'admin'@'localhost'
+CREATE USER 'admin1'@'%'
 IDENTIFIED BY "admin12345";
-CREATE USER 'user'@'localhost'
+CREATE USER 'user1'@'%'
 IDENTIFIED BY "user12345";
 
 -- Checking the users and the current user
@@ -93,32 +94,32 @@ SELECT current_user();
 -- Assigning permissions
 -- Assigning global priviledge
 GRANT ALL ON *.* 
-TO devs@localhost;
+TO devs@'%'WITH GRANT OPTION;
 
 -- Assigning database priviledge
-GRANT ALL ON bookstore.* 
-TO admin@localhost;
+GRANT ALL ON Bookstore.* 
+TO admin1@'%'WITH GRANT OPTION;
 
 -- Assigning table priviledge (customer table)
-GRANT ALL ON bookstore.customer
-TO user@localhost;
+GRANT ALL ON Bookstore.customer
+TO user1@'%'WITH GRANT OPTION;
 
 -- Creating roles
-CREATE ROLE devs,admin,user;
+CREATE ROLE devs,admin1,user1;
 -- Creating users
-CREATE USER 'cedrick'@'localhost'
+CREATE USER 'cedrick'@'%'
 IDENTIFIED BY "devs12345";
-CREATE USER 'philip'@'localhost'
+CREATE USER 'philip'@'%'
 IDENTIFIED BY "admin12345";
-CREATE USER 'mine'@'localhost'
+CREATE USER 'mine'@'%'
 IDENTIFIED BY "user12345";
 
 -- Assign permission/roles
-GRANT ALL ON bookstore.* TO devs;
-GRANT SELECT ON bookstore.* TO admin;
-GRANT INSERT,UPDATE,DELETE,SELECT ON bookstore.* TO user;
+GRANT ALL ON Bookstore.* TO devs;
+GRANT SELECT ON Bookstore.* TO admin1;
+GRANT INSERT,UPDATE,DELETE,SELECT ON Bookstore.* TO user1;
 
 -- Add users to roles
-GRANT devs TO cedrick@localhost;
-GRANT admin TO philip@localhost;
-GRANT user TO mine@localhost;
+GRANT devs TO cedrick@'%';
+GRANT admin1 TO philip@'%';
+GRANT user1 TO mine@'%';
