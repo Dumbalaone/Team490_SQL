@@ -7,7 +7,7 @@ CREATE TABLE country (
     country_name VARCHAR(100) NOT NULL
 );
 
--- Publisher Table
+-- Publisher Table.
 CREATE TABLE publisher (
     publisher_id INT PRIMARY KEY,
     publisher_name VARCHAR(150) NOT NULL,
